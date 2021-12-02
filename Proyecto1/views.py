@@ -25,14 +25,18 @@ def HelloWorld(request):
   return render(request, 'hello.html', ctx)
 
 def GoodByeWorld(request):
-  data = request
-  print(data.GET)
-  return HttpResponse('GoodBye World')
+  ctx = {
+    'bye' : 'Good Bye World'
+  }
+  return render(request, 'bye.html', ctx )
 
 def getTime(request):
   #get the current time in format '%H:%M:%S'
   current_time = datetime.datetime.now().strftime('%H:%M:%S')
-  return HttpResponse(current_time)
+  ctx = {
+    'time': current_time
+  }
+  return render(request, 'time.html', ctx)
 
 def calculateMyFutureAge( request , age , year ):
   period = year - datetime.date.today().year
