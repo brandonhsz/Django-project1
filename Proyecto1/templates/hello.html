@@ -10,7 +10,27 @@
 
 <body>
   <h1>Hello World</h1>
-  <p>Rescatando el datos del contexto {{name}} {{lastName}}</p>
+  <p>Temas del curso:</p>
+
+  {% if topics %}
+  <ul>
+
+    {% for topic in topics %}
+
+    <li>
+
+      {{topic|upper}}
+
+    </li>
+
+    {% endfor %}
+
+  </ul>
+
+  {% else %}
+  <p>No hay elementos a mostrar</p>
+  {% endif %}
+
 </body>
 
 </html>
