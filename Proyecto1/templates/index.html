@@ -1,3 +1,24 @@
+{% extends "base.html" %}
+{% block title %} Parent Template {% endblock %}
+
+{% block content %}
+
+<ul>
+  <li>
+    <a href='hello/'>Hello</a>
+  </li>
+  <li>
+    <a href='goodbye/'>Bye</a>
+  </li>
+  <li>
+    <a href='time/'>Time</a>
+  </li>
+  <li>
+    <a href='ages/'>MyFutureAge</a>
+  </li>
+</ul>
+
+{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,20 +30,7 @@
 </head>
 
 <body>
-  <ul>
-    <li>
-      <a href='hello/'>Hello</a>
-    </li>
-    <li>
-      <a href='goodbye/'>Bye</a>
-    </li>
-    <li>
-      <a href='time/'>Time</a>
-    </li>
-    <li>
-      <a href='ages/'>MyFutureAge</a>
-    </li>
-  </ul>
+
 </body>
 
 </html>
