@@ -1,6 +1,7 @@
 import datetime
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import render
 
 class Person(object):
   def __init__(self, name, lastName):
@@ -9,21 +10,11 @@ class Person(object):
 
 def Index(request):
 
-  IndexTemplate = loader.get_template('index.html')
-
-  render = IndexTemplate.render({})
-
-  return HttpResponse(render)
+  return render(request, 'index.html')
 
 def HelloWorld(request):
 
   anyPerson = Person('Brandon', 'Hernandez')
-
-  # external_doc = open('Proyecto1/templates/hello.html')
-  # template_content = Template(external_doc.read())
-  # external_doc.close()
-
-  HelloTemplate = loader.get_template('hello.html')
 
   ctx = {
     'name': anyPerson.name,
@@ -31,8 +22,7 @@ def HelloWorld(request):
     'topics' : ['Templates', 'Models', 'Forms', 'Views']
   }
 
-  render = HelloTemplate.render(ctx)
-  return HttpResponse(render)
+  return render(request, 'hello.html', ctx)
 
 def GoodByeWorld(request):
   data = request
